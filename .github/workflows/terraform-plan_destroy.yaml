@@ -3,7 +3,7 @@ name: "Terraform-Destroy-Infra-Destroy"
 on:
   push:
     branches:
-      - destroy
+      - plan_destroy
 
 jobs:
   terraform:
@@ -37,4 +37,4 @@ jobs:
 
       - name: Terraform Destroy
         if: github.event_name == 'push'
-        run: terraform destroy
+        run: terraform plan -destroy

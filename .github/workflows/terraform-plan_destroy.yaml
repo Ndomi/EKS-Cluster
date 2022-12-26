@@ -1,9 +1,9 @@
-name: "Terraform-Plan-Destroy"
+name: "Terraform-Destroy-Infra-Destroy"
 
 on:
   push:
     branches:
-      - destroy
+      - plan_destroy
 
 jobs:
   terraform:
@@ -25,7 +25,7 @@ jobs:
         id: init
         run: terraform init
 
-      - name: Terraform Paln
+      - name: Terraform Plan
         id: plan
         if: github.event_name == 'push'
         run: terraform plan -no-color
@@ -35,6 +35,6 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      - name: Terraform Destroy
+      - name: Terraform Plan Destroy
         if: github.event_name == 'push'
-        run: terraform destroy --auto-approve
+        run: terraform plan -destroy

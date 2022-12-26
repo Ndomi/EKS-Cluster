@@ -1,9 +1,10 @@
-name: "Terraform-Plan-Infra-Plan"
+name: "Terraform-Plan"
 
 on:
   push:
     branches:
       - dev
+  workflow_dispatch:
 
 jobs:
   terraform:

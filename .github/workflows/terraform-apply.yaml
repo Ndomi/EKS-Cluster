@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - apply
+  workflow_dispatch:
 
 jobs:
   terraform:

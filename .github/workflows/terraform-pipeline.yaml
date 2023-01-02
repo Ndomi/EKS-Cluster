@@ -28,8 +28,8 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        if: github.event_name == 'push'
-        run: terraform plan -no-color
+#         if: github.event_name == 'push'
+        run: terraform plan
         continue-on-error: true
 
       - name: Terraform Plan Status
@@ -37,7 +37,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Plan Destroy
-        if: github.event_name == 'push'
+#         if: github.event_name == 'push'
         run: terraform plan -destroy
       
   apply:
@@ -64,7 +64,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        if: github.event_name == 'push'
+#         if: github.event_name == 'push'
         run: terraform plan
         continue-on-error: true
 
@@ -73,7 +73,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.event_name == 'push'
+#         if: github.event_name == 'push'
         run: terraform apply -auto-approve
 
   plan_destroy:
@@ -100,7 +100,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        if: github.event_name == 'push'
+#         if: github.event_name == 'push'
         run: terraform plan
         continue-on-error: true
 
@@ -109,7 +109,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Plan Destroy
-        if: github.event_name == 'push'
+#         if: github.event_name == 'push'
         run: terraform plan -destroy
 
   destroy:
@@ -138,7 +138,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        if: github.event_name == 'push'
+#         if: github.event_name == 'push'
         run: terraform plan
         continue-on-error: true
 
@@ -147,5 +147,5 @@ jobs:
         run: exit 1
 
       - name: Terraform Plan Destroy
-        if: github.event_name == 'push'
+#         if: github.event_name == 'push'
         run: terraform destroy --auto-approve
